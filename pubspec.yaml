@@ -31,6 +31,8 @@ dependencies:
   google_fonts: ^6.2.1
   firebase_auth_platform_interface: ^7.3.0
   firebase_auth_web: ^5.8.13
+  flutter_svg: ^2.0.17
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:
@@ -44,4 +46,5 @@ flutter:
 
   # # Add assets (e.g., images) by specifying the directory
   assets:
-    - images/
+    - assets/icons/
+    - assets/images/

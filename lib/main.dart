@@ -1,35 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'login.dart';
-import 'signup.dart';
-import 'screens/explore.dart';
+import 'package:provider/provider.dart';
+import 'package:the_dwarf_chef/models/NavItem.dart';
+import 'package:the_dwarf_chef/screens/home/home_screen.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const MyApp());
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-  
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'The Dwarf Chef',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: GoogleFonts.montserratTextTheme(),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return ChangeNotifierProvider(
+      create: (context) => NavItems(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Recipe App',
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+          // Most app bars in our app use this style.
+          appBarTheme: AppBarTheme(color: Colors.white, elevation: 0),
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: HomeScreen(),
       ),
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/login',
-      routes: {
-        '/login': (context) => const LoginPage(),
-        '/signup': (context) => const SignUpPage(),
-        '/home': (context) => Explore(), // Your Explore page as the main page
-      },
     );
   }
 }
