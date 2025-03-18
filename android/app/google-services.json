@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "657420594262",
+    "project_id": "the-dwarf-chef",
+    "storage_bucket": "the-dwarf-chef.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657420594262:android:21b32b99b55cf393221ff7",
+        "android_client_info": {
+          "package_name": "com.thedwarfchef.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGhfVUFeHcOhPMCKSsDBdDuaq8Wu5Go3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
