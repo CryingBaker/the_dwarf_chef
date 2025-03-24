@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:meal_ai/auth/screens/sign_in_page/sign_in_page.dart';
 import '../../../core/styles/sizes.dart';
 import '../../../core/styles/text_styles.dart';
 import '../../../core/utils/extensions/context.dart';
@@ -176,6 +178,42 @@ class _SettingsPageBodyState extends State<SettingsPageBody> {
                           trailingText: ''),
                     ),
                   ],
+                ),
+              ),
+              const SizedBox(height: PaddingSizes.xl),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: InkWell(
+                  onTap: () async {
+                    try {
+                      await FirebaseAuth.instance.signOut();
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignInPage()),
+                        (route) => false,
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                            content: Text('Logout failed: ${e.toString()}')),
+                      );
+                    }
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(PaddingSizes.mdl),
+                    child: Row(
+                      children: [
+                        FaIcon(Icons.logout, color: Colors.red),
+                        SizedBox(width: PaddingSizes.lg),
+                        Text('Log Out', style: TextStyle(color: Colors.red)),
+                        const Spacer(),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ],

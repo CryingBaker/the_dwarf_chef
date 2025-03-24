@@ -55,4 +55,6 @@ class AppTextStyles {
     decoration: TextDecoration.none,
     letterSpacing: 0,
   );
+
+  get bodyText => null;
 }
